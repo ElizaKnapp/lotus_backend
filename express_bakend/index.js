@@ -22,9 +22,9 @@ app.use(cors()); //some trust able thingy that I don't get
 // to look nicer
 app.get('/', (req, res) => {res.send('Backend is running')})
 
-//connect to the routes--> if you go to localhost:5000/homeLobby you can get all the data that's been posted
-// const homeLobbyRouter = require("./routes/homeLobby");
-// app.use("/homeLobby", homeLobbyRouter);
+//connect to the routes--> if you go to localhost:5000/user you can get all the data that's been posted
+const userRouter = require("./routes/user");
+app.use("/user", userRouter);
 
 //error handling middleware
 app.use(function (err, req, res, next) {

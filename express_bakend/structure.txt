@@ -1,0 +1,8 @@
+Schema Structures
+
+1. User
+{
+  "username": "bob",
+  "password": "friendlybob",
+  "email": "bob@gmail.com"
+}
