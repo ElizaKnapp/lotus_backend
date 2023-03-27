@@ -25,9 +25,27 @@ router.get("/", async (req, res) => {
     .catch(next);
 });
 
-// gets by unique id given by mongodb
-
 // gets by username
+router.get("/byUsername/:username", function (req, res, next) {
+  var username = req.params.username;
+  User.find({ username: username })
+    .then(function (user) {
+      
+      res.send(user);
+    })
+    .catch(next);
+});
+
+// gets by email
+router.get("/byEmail/:email", function (req, res, next) {
+  var email = req.params.email;
+  User.find({ email: email })
+    .then(function (user) {
+      
+      res.send(user);
+    })
+    .catch(next);
+});
 
 // ------------------------------------ PATCH Requests ------------------------------------
 
