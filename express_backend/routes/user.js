@@ -25,6 +25,10 @@ router.get("/", async (req, res) => {
     .catch(next);
 });
 
+// gets by unique id given by mongodb
+
+// gets by username
+
 // ------------------------------------ PATCH Requests ------------------------------------
 
 // ------------------------------------ PUT Requests ------------------------------------
