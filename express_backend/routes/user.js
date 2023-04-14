@@ -53,4 +53,12 @@ router.get("/byEmail/:email", function (req, res, next) {
 
 // ------------------------------------ DELETE Requests ------------------------------------
 
+// route created to delete all for testing
+router.delete("/", function (req, res, next) {
+  User.deleteMany({}).then(function() {
+    console.log("All elements in collection deleted");
+  })
+  .catch(next);
+})
+
 module.exports = router;
