@@ -26,6 +26,17 @@ app.get('/', (req, res) => {res.send('Backend is running')})
 const userRouter = require("./routes/user");
 app.use("/user", userRouter);
 
+const userInfoRouter = require("./routes/userInfo");
+app.use("/userInfo", userInfoRouter)
+
+const groupRouter = require("./routes/group");
+app.use("/group", groupRouter)
+
+const postRouter = require("./routes/post");
+app.use("/post", postRouter)
+
+
+
 //error handling middleware
 app.use(function (err, req, res, next) {
   //console.log(err);
