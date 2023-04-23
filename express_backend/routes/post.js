@@ -36,6 +36,8 @@ router.get("/byTitle/:title", function (req, res, next) {
     .catch(next);
 });
 
+// TODO: search posts by group
+
 // ------------------------------------ PATCH Requests ------------------------------------
 
 // ------------------------------------ PUT Requests ------------------------------------

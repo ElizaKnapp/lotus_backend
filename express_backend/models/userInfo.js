@@ -27,6 +27,7 @@ const UserInfoSchema = new Schema({
     type: String, 
     required: true
   }
+  // TODO: add something as an array of groups a user is a part of!
 })
 
 //this saves the user model in a users collection in mongo
