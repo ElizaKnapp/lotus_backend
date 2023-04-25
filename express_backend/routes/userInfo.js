@@ -8,8 +8,8 @@ const UserInfo = require("../models/userInfo");
 // Adds a user to the database
 router.post("/", function (req, res, next) {
   UserInfo.create(req.body)
-    .then(function (user) {
-      res.send(user); // sends the message back to the client with the added data
+    .then(function (userInfo) {
+      res.send(userInfo); // sends the message back to the client with the added data
     })
     .catch(next);
 });

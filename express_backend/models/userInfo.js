@@ -26,8 +26,15 @@ const UserInfoSchema = new Schema({
   profile_visibility: {
     type: String, 
     required: true
-  }
-  // TODO: add something as an array of groups a user is a part of!
+  },
+  groups: [
+    {
+      name: {
+        type: String, 
+        required: true
+      }
+    }
+  ]
 })
 
 //this saves the user model in a users collection in mongo

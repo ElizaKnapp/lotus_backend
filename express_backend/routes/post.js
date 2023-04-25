@@ -36,6 +36,17 @@ router.get("/byTitle/:title", function (req, res, next) {
     .catch(next);
 });
 
+// gets by group
+router.get("/byGroup/:group", function (req, res, next) {
+  var group = req.params.group;
+  Post.find({ group: group })
+    .then(function (post) {
+      
+      res.send(post);
+    })
+    .catch(next);
+});
+
 // TODO: search posts by group
 
 // ------------------------------------ PATCH Requests ------------------------------------
