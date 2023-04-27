@@ -38,6 +38,17 @@ router.get("/byName/:name", function (req, res, next) {
 
 // ------------------------------------ PATCH Requests ------------------------------------
 
+// this function allows you to change the number of members in a group
+router.patch("/byName/:name", function (req, res, next) {
+  // query is the roomCode you want to patch the counter to
+  var name = req.params.name;
+  Group.findOneAndUpdate({name: name}, {num_members: req.body.num_members})
+    .then(function (group) {
+      res.send(group);
+    })
+    .catch(next);
+})
+
 // ------------------------------------ PUT Requests ------------------------------------
 
 // ------------------------------------ DELETE Requests ------------------------------------
