@@ -44,9 +44,23 @@ router.get("/byUsername/:username", function (req, res, next) {
 // adds a group based on username
 router.put("/byUsername/:username", function (req, res, next) {
   var username = req.params.username;
-  var name = req.body.groups.name;;
+  var name = req.body.groups.name;
 
   UserInfo.findOneAndUpdate({ username: username }, { $push: { groups: {name: name} } })
+    .then(function () {
+      UserInfo.find({ username: username }).then(function (user) {
+        res.send(user);
+      });
+    })
+    .catch(next);
+});
+
+// removes group from the array when you leave
+router.put("/removeGroup/:username", function (req, res, next) {
+  var username = req.params.username;
+  var name = req.body.groups.name;
+
+  UserInfo.findOneAndUpdate({ username: username }, { $pull: { groups: {name: name} } })
     .then(function () {
       UserInfo.find({ username: username }).then(function (user) {
         res.send(user);
