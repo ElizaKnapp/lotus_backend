@@ -41,6 +41,20 @@ router.get("/byUsername/:username", function (req, res, next) {
 
 // ------------------------------------ PUT Requests ------------------------------------
 
+// adds a group based on username
+router.put("/byUsername/:username", function (req, res, next) {
+  var username = req.params.username;
+  var name = req.body.groups.name;;
+
+  UserInfo.findOneAndUpdate({ username: username }, { $push: { groups: {name: name} } })
+    .then(function () {
+      UserInfo.find({ username: username }).then(function (user) {
+        res.send(user);
+      });
+    })
+    .catch(next);
+});
+
 // ------------------------------------ DELETE Requests ------------------------------------
 
 // route created to delete all for testing
