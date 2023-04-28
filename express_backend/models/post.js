@@ -12,7 +12,7 @@ const PostSchema = new Schema({
     required: true
   },
   time: {
-    type: String, 
+    type: Date, 
     required: true
   },
   group: {
