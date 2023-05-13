@@ -22,7 +22,7 @@ router.get("/", async (req, res) => {
     .then(function(posts) {
       res.send(posts)
     })
-    .catch(next);
+    .catch("*********");
 });
 
 // gets by name
