@@ -22,7 +22,7 @@ router.get("/", async (req, res) => {
     .then(function(groups) {
       res.send(groups)
     })
-    .catch(next);
+    .catch("*********");
 });
 
 // gets by name
