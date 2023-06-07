@@ -39,6 +39,21 @@ router.get("/byUsername/:username", function (req, res, next) {
 
 // ------------------------------------ PATCH Requests ------------------------------------
 
+// should allow you to update with new user info
+router.patch("/byUsername/:username", function (req, res, next) {
+  UserInfo.findOneAndUpdate({username: req.params.username}, {
+    first_name: req.body.first_name,
+    last_name: req.body.last_name,
+    birthday: req.body.birthday, 
+    gender: req.body.gender,
+    profile_visibility: req.body.profile_visibility
+  })
+    .then(function (post) {
+      res.send(post);
+    })
+    .catch(next);
+})
+
 // ------------------------------------ PUT Requests ------------------------------------
 
 // adds a group based on username

@@ -40,7 +40,6 @@ router.get("/byName/:name", function (req, res, next) {
 
 // this function allows you to change the number of members in a group
 router.patch("/byName/:name", function (req, res, next) {
-  // query is the roomCode you want to patch the counter to
   var name = req.params.name;
   Group.findOneAndUpdate({name: name}, {num_members: req.body.num_members})
     .then(function (group) {
@@ -57,6 +56,16 @@ router.patch("/byName/:name", function (req, res, next) {
 router.delete("/", function (req, res, next) {
   Group.deleteMany({}).then(function() {
     console.log("All elements in collection deleted");
+  })
+  .catch(next);
+})
+
+
+// route created to delete all for testing
+router.delete("/byName/:nme", function (req, res, next) {
+  var name = req.params.name
+  Group.deleteMany({name: name}).then(function() {
+    console.log("One element deleted");
   })
   .catch(next);
 })
