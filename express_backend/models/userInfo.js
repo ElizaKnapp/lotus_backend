@@ -34,7 +34,20 @@ const UserInfoSchema = new Schema({
         required: true
       }
     }
-  ]
+  ],
+  interests: [
+    {
+      interest: {
+        type: String,
+        required: true
+      }
+    }
+  ],
+  location: {
+    type: String,
+    required: false
+  }
+
 })
 
 //this saves the user model in a users collection in mongo

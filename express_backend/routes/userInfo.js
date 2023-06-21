@@ -46,7 +46,8 @@ router.patch("/byUsername/:username", function (req, res, next) {
     last_name: req.body.last_name,
     birthday: req.body.birthday, 
     gender: req.body.gender,
-    profile_visibility: req.body.profile_visibility
+    profile_visibility: req.body.profile_visibility,
+    location: req.body.location
   })
     .then(function (post) {
       res.send(post);
@@ -57,7 +58,7 @@ router.patch("/byUsername/:username", function (req, res, next) {
 // ------------------------------------ PUT Requests ------------------------------------
 
 // adds a group based on username
-router.put("/byUsername/:username", function (req, res, next) {
+router.put("/byUsername/addGroup/:username", function (req, res, next) {
   var username = req.params.username;
   var name = req.body.groups.name;
 
@@ -69,6 +70,21 @@ router.put("/byUsername/:username", function (req, res, next) {
     })
     .catch(next);
 });
+
+// adds an interest based on username
+router.put("/byUsername/addInterest/:username", function (req, res, next) {
+  var username = req.params.username;
+  var interest = req.body.interests.interest;
+
+  UserInfo.findOneAndUpdate({ username: username }, { $push: { interests: {interest: interest} } })
+    .then(function () {
+      UserInfo.find({ username: username }).then(function (user) {
+        res.send(user);
+      });
+    })
+    .catch(next);
+});
+
 
 // removes group from the array when you leave
 router.put("/removeGroup/:username", function (req, res, next) {
