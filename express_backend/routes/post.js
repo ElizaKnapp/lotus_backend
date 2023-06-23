@@ -47,9 +47,21 @@ router.get("/byGroup/:group", function (req, res, next) {
     .catch(next);
 });
 
-// TODO: search posts by group
-
 // ------------------------------------ PATCH Requests ------------------------------------
+
+router.patch("/byId/:id", function (req, res, next) {
+  Post.findOneAndUpdate({_id: req.params.id}, {
+    title: req.body.title,
+    author: req.body.author,
+    time: req.body.time, 
+    content: req.body.content,
+    flagged: req.body.flagged
+  })
+    .then(function (post) {
+      res.send(post);
+    })
+    .catch(next);
+})
 
 // ------------------------------------ PUT Requests ------------------------------------
 

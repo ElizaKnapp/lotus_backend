@@ -47,7 +47,8 @@ router.patch("/byUsername/:username", function (req, res, next) {
     birthday: req.body.birthday, 
     gender: req.body.gender,
     profile_visibility: req.body.profile_visibility,
-    location: req.body.location
+    location: req.body.location,
+    flagged: req.body.flagged
   })
     .then(function (post) {
       res.send(post);
