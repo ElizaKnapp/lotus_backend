@@ -61,4 +61,14 @@ router.delete("/", function (req, res, next) {
   .catch(next);
 })
 
+// delete by specific username
+router.delete("/byUsername/:username", function (req, res, next) {
+  var username = req.params.username;
+  User.deleteMany({ username: username })
+    .then(function () {
+      console.log(username + " deleted")
+    })
+    .catch(next);
+});
+
 module.exports = router;

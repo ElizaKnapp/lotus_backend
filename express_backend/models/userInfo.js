@@ -46,6 +46,10 @@ const UserInfoSchema = new Schema({
   location: {
     type: String,
     required: false
+  }, 
+  flagged: {
+    type: Boolean, 
+    required: true
   }
 
 })

@@ -30,7 +30,11 @@ const PostSchema = new Schema({
         required: true
       }
     }
-  ]
+  ], 
+  flagged: {
+    type: Boolean,
+    required: true
+  }
 })
 
 //this saves the user model in a users collection in mongo
