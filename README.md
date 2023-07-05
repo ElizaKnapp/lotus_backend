@@ -1,4 +1,4 @@
 # lotus_backend
-to launch \\
-``cd express_backend`` \\
-``nodemon index.js`` \\
+to launch <br>  
+``cd express_backend`` <br>  
+``nodemon index.js`` <br>  
